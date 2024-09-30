@@ -45,17 +45,6 @@ The verification methodology employed functional coverage to ensure that all cor
 #### Assertion Coverage: Ensuring that all RTL assertions were exercised.
 #### Functional Coverage: Using a covergroup to measure the effectiveness of the testbench in exercising different FIFO states (e.g., full, almost full, empty).
 
-Label1: When rst_n is asserted, all flags and internal signals should be reset to 0.
-Label2: When rst_n is deactivated and the FIFO is full (count = depth), the full flag should be high.
-Label3: When rst_n is deactivated and the FIFO has one free slot (count = depth-1), the almostfull flag should be high.
-Label4: When rst_n is deactivated and the FIFO is empty (count = 0), the empty flag should be high.
-Label5: When rst_n is deactivated and the FIFO has only one element (count = 1), the empty flag should still be high.
-Label6: When rst_n is deactivated and a write occurs while the FIFO is not full, the wr_ack flag should be high, and the wr_ptr should increment.
-Label7: When rst_n is deactivated and a write occurs while the FIFO is full, the overflow flag should be high.
-Label8: When rst_n is deactivated and a read occurs while the FIFO is not empty, the rd_ptr should increment, and data_out should match mem[rd_ptr].
-Label9: When rst_n is deactivated and a read occurs while the FIFO is empty, the underflow flag should be high.
-At the end of the simulation, the FIFO is empty, indicating that all transactions were processed correctly.
-
 #### Overall Coverage
 Toggle Coverage: Measures how often each bit in the design toggles.
 Branch Coverage: Ensures all branches in conditional statements are exercised.
@@ -65,7 +54,7 @@ Assertions Coverage: Tracks how many of the implemented assertions have been tri
 Functional Coverage: Cross-coverage between write enable, read enable, and control signals (excluding data_out).
 
 ### Simulation Results
-The FIFO verification was conducted using QuestaSim. Several key test cases and scenarios were simulated, and the following results were captured:
+The FIFO verification was conducted using QuestaSim. Several key test cases and scenarios were simulated, At the end of the simulation, the FIFO is empty, indicating that all transactions were processed correctly.
 
 ### Conclusion
 This project successfully verified the FIFO design, uncovering key bugs and ensuring the correct operation of the FIFO under various scenarios, including corner cases.
