@@ -1,4 +1,4 @@
-# Synchronous-FIFO Verification using SystemVerilog
+# Synchronous FIFO Verification using SystemVerilog
 This repository contains a SystemVerilog project for the verification of a First-In-First-Out (FIFO) design. The project was verified by Khaled Ahmed Hamed, under the supervision of Eng. Kareem Waseem.
 
 ![FIFO_OneWayStreet_1](https://github.com/user-attachments/assets/c43f4088-9a65-4308-ae19-206e4c443c8d)
