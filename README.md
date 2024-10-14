@@ -14,13 +14,13 @@ Write and Read Control: Logic to handle data flow based on control signals wr_en
 ### Known Design Bugs
 The FIFO design contains four known bugs that were targeted during verification:
 
-Reset Signal Overflow & Underflow: Issues related to incorrect flag behaviors on reset:
-wr_ack and underflow have faulty behaviors during reset.
-Unhandled Cases:
-If both read_enable and write_enable are high and the FIFO is empty, only writing should occur.
-If both read_enable and write_enable are high and the FIFO is full, only reading should occur.
-Sequential Underflow Flag: The underflow flag is combinational when it should be sequential.
-Almost Full Flag Miscalculation: The flag for "almost full" status was initially calculated as FIFO_DEPTH-2, and was corrected to FIFO_DEPTH-1.
+##### Reset Signal Overflow & Underflow: Issues related to incorrect flag behaviors on reset:
+##### wr_ack and underflow have faulty behaviors during reset.
+#### Unhandled Cases:
+##### If both read_enable and write_enable are high and the FIFO is empty, only writing should occur.
+##### If both read_enable and write_enable are high and the FIFO is full, only reading should occur.
+##### Sequential Underflow Flag: The underflow flag is combinational when it should be sequential.
+##### Almost Full Flag Miscalculation: The flag for "almost full" status was initially calculated as FIFO_DEPTH-2, and was corrected to FIFO_DEPTH-1.
 
 ### Verification Plan
 Key Verification Goals
