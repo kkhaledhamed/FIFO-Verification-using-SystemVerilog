@@ -14,13 +14,13 @@ Write and Read Control: Logic to handle data flow based on control signals wr_en
 ### Known Design Bugs
 The FIFO design contains four known bugs that were targeted during verification:
 
-##### Reset Signal Overflow & Underflow: Issues related to incorrect flag behaviors on reset:
-##### wr_ack and underflow have faulty behaviors during reset.
-#### Unhandled Cases:
-##### If both read_enable and write_enable are high and the FIFO is empty, only writing should occur.
-##### If both read_enable and write_enable are high and the FIFO is full, only reading should occur.
-##### Sequential Underflow Flag: The underflow flag is combinational when it should be sequential.
-##### Almost Full Flag Miscalculation: The flag for "almost full" status was initially calculated as FIFO_DEPTH-2, and was corrected to FIFO_DEPTH-1.
+- Reset Signal Overflow & Underflow: Issues related to incorrect flag behaviors on reset:
+- wr_ack and underflow have faulty behaviors during reset.
+- Unhandled Cases:
+- If both read_enable and write_enable are high and the FIFO is empty, only writing should occur.
+- If both read_enable and write_enable are high and the FIFO is full, only reading should occur.
+- Sequential Underflow Flag: The underflow flag is combinational when it should be sequential.
+- Almost Full Flag Miscalculation: The flag for "almost full" status was initially calculated as FIFO_DEPTH-2, and was corrected to FIFO_DEPTH-1.
 
 ### Verification Plan
 Key Verification Goals
@@ -43,16 +43,16 @@ The verification methodology employed functional coverage to ensure that all cor
 
 #### Code Coverage: Including toggle, branch, statement, and condition coverage.
 
-#### Assertion Coverage: Ensuring that all RTL assertions were exercised.
-#### Functional Coverage: Using a covergroup to measure the effectiveness of the testbench in exercising different FIFO states (e.g., full, almost full, empty).
+- Assertion Coverage: Ensuring that all RTL assertions were exercised.
+- Functional Coverage: Using a covergroup to measure the effectiveness of the testbench in exercising different FIFO states (e.g., full, almost full, empty).
 
 #### Overall Coverage
-Toggle Coverage: Measures how often each bit in the design toggles.
-Branch Coverage: Ensures all branches in conditional statements are exercised.
-Statement Coverage: Verifies all code statements are executed.
-Condition Coverage: Ensures that all conditions in the design have been evaluated.
-Assertions Coverage: Tracks how many of the implemented assertions have been triggered.
-Functional Coverage: Cross-coverage between write enable, read enable, and control signals (excluding data_out).
+- Toggle Coverage: Measures how often each bit in the design toggles.
+- Branch Coverage: Ensures all branches in conditional statements are exercised.
+- Statement Coverage: Verifies all code statements are executed.
+- Condition Coverage: Ensures that all conditions in the design have been evaluated.
+- Assertions Coverage: Tracks how many of the implemented assertions have been triggered.
+- Functional Coverage: Cross-coverage between write enable, read enable, and control signals (excluding data_out).
 
 ### Simulation Results
 The FIFO verification was conducted using QuestaSim. Several key test cases and scenarios were simulated, At the end of the simulation, the FIFO is empty, indicating that all transactions were processed correctly.
