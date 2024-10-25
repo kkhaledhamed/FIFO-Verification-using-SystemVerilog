@@ -29,7 +29,7 @@ The goal of this verification project is to achieve comprehensive coverage of th
 ### RTL Assertions
 Several RTL assertions were implemented to ensure that the FIFO flags and pointers behave correctly under different scenarios, such as reset, overflow, underflow, read, and write operations.
 
-### Interface Code
+### Interface
 The project uses a SystemVerilog interface for connecting the testbench components with the DUT (Device Under Test). This interface simplifies signal handling and helps to verify the communication between different testbench components.
 
 ### Monitor
